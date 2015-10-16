@@ -1,0 +1,7 @@
+#!/bin/bash
+
+RES=$(myres)
+W=$[$(echo $RES | cut -d x -f 1) - 34]
+H=$[$(echo $RES | cut -d x -f 2) - 90]
+wmctrl -r :ACTIVE: -b remove,maximized_horz,maximized_vert 
+wmctrl -e 0,16,16,$W,$H -r :ACTIVE:

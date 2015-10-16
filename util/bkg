@@ -1,0 +1,8 @@
+PATHCACHE="$HOME/.wallpaper"
+touch $PATHCACHE
+EXISTING=`cat $PATHCACHE`
+if [[ ! -e $EXISTING ]]; then
+  EXISTING="$HOME/Pictures/"
+fi
+ranger --choosefile=$PATHCACHE --selectfile=$EXISTING
+feh --bg-fill `cat $PATHCACHE`

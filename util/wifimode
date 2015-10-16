@@ -1,0 +1,3 @@
+ip link set wlp2s0 down
+iwconfig wlp2s0 mode $1
+ip link set wlp2s0 up

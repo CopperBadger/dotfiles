@@ -1,0 +1,112 @@
+#!\bin\bash
+# i3 panel config. Powerline style.
+
+panel_fifo="/tmp/i3_lemonbar_${USER}"
+geometry="x14"
+#font="-xos4-terminus2-medium-r-normal--12-120-72-72-c-0-iso8859-1"
+font="-xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1"
+iconfont="-xos4-terminusicons2mono-medium-r-normal--12-120-72-72-m-60-iso8859-1"
+#iconfont="-misc-ionicons-medium-r-normal--12-120-72-72-p-60-iso10646-1"
+res_w=$(xrandr | grep "current" | awk '{print $8a}')
+# snd_cha=$(amixer get Master | grep "Playback channels:" | awk '{if ($4 == "") {printf "%s: Playback", $3} else {printf "%s %s: Playback", $3, $4}}')
+
+# Alarm settings
+cpu_alert=75                        # % cpu use
+net_alert=5                         # K net use
+
+# update setting, in seconds (conky update in i3_lemonbar_conky
+upd_vol=3                           # Volume update
+upd_mail=300                        # Mail check update
+upd_mpd=5                           # MPD song update
+upd_bat=5                           # Battey update (temporary, until conky installed)
+
+# --- APPLY XRES BEGIN
+c_black_d="#ff1d2021"
+c_red_l="#fffb4934"
+c_black_l="#ff504945"
+c_magenta_d="#ffb16286"
+c_green_l="#ffb8bb26"
+c_cyan_d="#ff689d6a"
+c_white_l="#fffbf1c7"
+c_yellow_l="#fffabd2f"
+c_blue_d="#ff458588"
+c_yellow_d="#ffd79921"
+c_cyan_l="#ff8ec07c"
+c_green_d="#ff98971a"
+c_white_d="#ffa89984"
+c_blue_l="#ff83a598"
+c_red_d="#ffcc241d"
+c_magenta_l="#ffd3869b"
+c_cursor="#ffa9a9a9"
+c_foreground="#ffebdbb2"
+c_background="#ff282828"
+# --- APPLY XRES END
+
+# color definitions 
+color_back="$c_background"              # Default background
+color_fore="$c_white_l"              # Default foreground
+color_head="$c_yellow_d"              # Background for unselected workspaces
+color_wsp="$c_yellow_l"               # Background for selected workspace
+color_sec_b1="$c_black_d"            # Background for section 1
+color_sec_b2="$c_black_l"            # Background for section 2
+color_sec_b3="$c_white_d"            # Background for section 3
+color_icon="$c_white_d"              # For icons
+color_mail="$c_magenta_l"              # Background color for mail alert
+color_chat="$c_magenta_l"              # Background color for chat alert
+color_cpu="$c_magenta_l"               # Background color for cpu alert
+color_net="$c_white_l"               # Background color for net alert
+color_disable="$c_black_l"           # Foreground for disable elements
+color_clock="$c_magenta_d"             # Color for clock
+color_clock_edge="$c_magenta_l"             # Color for clock
+
+color_success="$c_green_l"           # Positive color for good times
+color_warning="$c_yellow_d"           # Yellow color for warnings (eg, low battery)
+color_critical="$c_red_d"          # Red color for critical meters
+
+#default space between sections
+if [ ${res_w} -gt 1024 ]; then
+  stab='  '
+else
+  stab=' '
+fi
+
+# Char glyps for powerline fonts
+sep_left=""                        # Powerline separator left
+sep_right=""                       # Powerline separator right
+sep_l_left=""                      # Powerline light separator left
+sep_l_right=""                     # Powerline light sepatator right
+
+# Icon glyphs from Terminusicons2
+icon_clock="Õ"                      # Clock icon
+icon_cpu="Ï"                        # CPU icon
+icon_mem="Þ"                        # MEM icon
+icon_dl="Ð"                         # Download icon
+icon_ul="Ñ"                         # Upload icon
+icon_vol="Ô"                        # Volume icon
+icon_hd="À"                         # HD / icon
+icon_home="Æ"                       # HD /home icon
+icon_mail="Ó"                       # Mail icon
+icon_chat="Ò"                       # IRC/Chat icon
+icon_music="Î"                      # Music icon
+icon_prog="Â"                       # Window icon
+icon_contact="Á"                    # Contact icon
+icon_wsp="É"                        # Workspace icon
+icon_battery=""                    # Battery icon
+icon_charging="+"                   # Charging icon
+
+# Ionicon glyphs
+# icon_battery=""                      # Battery icon (half-ish full)
+# icon_clock=""                        # Clock icon
+# icon_cpu="?"                          # CPU icon
+# icon_globe=""                        # Globe icon
+# icon_home=""                         # Home icon (also linux)
+# icon_laptop=""                       # Laptop icon
+# icon_linux=""                        # Linux (Tux) icon
+# icon_mail=""                         # Email icon
+# icon_mem="?"                          # Memory icon
+# icon_music=""                        # Music icon
+# icon_paw=""                          # Paw icon
+# icon_prog=""                         # Window icon
+# icon_shell=""                        # Shell icon
+# icon_vol=""                          # Volume icon
+# icon_wsp=""                          # Workspace icon (paw duplicate for now)

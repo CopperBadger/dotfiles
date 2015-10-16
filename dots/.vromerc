@@ -1,0 +1,4 @@
+map H gT
+map L gt
+map u <C-o>
+map U <C-i>

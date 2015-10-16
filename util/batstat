@@ -1,0 +1,25 @@
+#!/bin/bash
+# Battery statistics command for i3 Lemonbar
+
+# Get battery percentage
+CAPACITY=$(cat /sys/class/power_supply/BAT0/capacity) # Charged percentage
+
+# Get charging status
+CHARGING="D"
+
+if [[ `cat /sys/class/power_supply/AC0/online` -eq 1 ]]; then
+  CHARGING="C"
+fi
+
+# Get power level status
+STATUS="N"
+
+if [[ $CAPACITY -gt 98 ]]; then
+  STATUS="F";
+elif [[ $CAPACITY -lt 10 ]]; then
+  STATUS="C"
+elif [[ $CAPACITY -lt 25 ]]; then
+  STATUS="L"
+fi
+
+echo "BAT$CAPACITY $CHARGING $STATUS"

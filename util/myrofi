@@ -1,0 +1,24 @@
+# --- APPLY XRES BEGIN
+c_black_d="1d2021"
+c_red_l="fb4934"
+c_black_l="504945"
+c_magenta_d="b16286"
+c_green_l="b8bb26"
+c_cyan_d="689d6a"
+c_white_l="fbf1c7"
+c_yellow_l="fabd2f"
+c_blue_d="458588"
+c_yellow_d="d79921"
+c_cyan_l="8ec07c"
+c_green_d="98971a"
+c_white_d="a89984"
+c_blue_l="83a598"
+c_red_d="cc241d"
+c_magenta_l="d3869b"
+c_cursor="a9a9a9"
+c_foreground="ebdbb2"
+c_background="282828"
+# --- APPLY XRES END
+
+width=`myres | cut -d 'x' -f 1`
+rofi -show run -width $width -fg "#$c_blue_d" -bg "#$c_background" -hlbg "#$c_black_l" -hlfg "#$c_blue_l" -bc "#$c_background" -location 0 -lines 8 -bw 0 -font "DejaVu Sans Mono 12" -padding 400 -separator-style none -opacity 85

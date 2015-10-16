@@ -1,0 +1,8 @@
+while true; do
+	clear
+	if [ `batpct | cut -d '.' -f 1` -lt 15 ]; then
+		echo "=== WARNING WARNING WARNING ==="
+	fi
+	toilet -f term -F border `batpct`
+	sleep 5
+done
