@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
-# ApplyXRes by Alex Arendsen
-# ---
 # Read .Xresources color definitions and copy them into my files:
 # 1. i3 configuration
 # 2. Xfce4 Terminal
