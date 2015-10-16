@@ -1,8 +1,0 @@
-#!/bin/sh
-
-BATCUR=$(cat /sys/class/power_supply/BAT0/energy_now)
-BATMAX=$(cat /sys/class/power_supply/BAT0/energy_full)
-BATPCT_SRC=$(( ($BATCUR*1000000)/$BATMAX ))
-BATPCT_INTPART=$(( $BATPCT_SRC/10000 ))
-BATPCT_FLOATPART=$(( $BATPCT_SRC-($BATPCT_INTPART*10000)  ))
-echo "$BATPCT_INTPART.$BATPCT_FLOATPART"
