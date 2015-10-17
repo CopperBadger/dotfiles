@@ -21,25 +21,25 @@ upd_mpd=5                           # MPD song update
 upd_bat=5                           # Battey update (temporary, until conky installed)
 
 # --- APPLY XRES BEGIN
-c_black_d="#ff1d2021"
-c_red_l="#fffb4934"
-c_black_l="#ff504945"
-c_magenta_d="#ffb16286"
-c_green_l="#ffb8bb26"
-c_cyan_d="#ff689d6a"
-c_white_l="#fffbf1c7"
-c_yellow_l="#fffabd2f"
-c_blue_d="#ff458588"
+c_cursor="#ffa9a9a9"
 c_yellow_d="#ffd79921"
+c_blue_d="#ff458588"
+c_foreground="#ffebdbb2"
 c_cyan_l="#ff8ec07c"
 c_green_d="#ff98971a"
 c_white_d="#ffa89984"
+c_black_l="#ff504945"
 c_blue_l="#ff83a598"
-c_red_d="#ffcc241d"
-c_magenta_l="#ffd3869b"
-c_cursor="#ffa9a9a9"
-c_foreground="#ffebdbb2"
 c_background="#ff282828"
+c_cyan_d="#ff689d6a"
+c_magenta_d="#ffb16286"
+c_red_l="#fffb4934"
+c_magenta_l="#ffd3869b"
+c_red_d="#ffcc241d"
+c_white_l="#fffbf1c7"
+c_black_d="#ff1d2021"
+c_green_l="#ffb8bb26"
+c_yellow_l="#fffabd2f"
 # --- APPLY XRES END
 
 # color definitions 
@@ -60,7 +60,7 @@ color_clock="$c_magenta_d"             # Color for clock
 color_clock_edge="$c_magenta_l"             # Color for clock
 
 color_success="$c_green_l"           # Positive color for good times
-color_warning="$c_yellow_d"           # Yellow color for warnings (eg, low battery)
+color_warning="$c_yellow_l"           # Yellow color for warnings (eg, low battery)
 color_critical="$c_red_d"          # Red color for critical meters
 
 #default space between sections
@@ -90,7 +90,7 @@ icon_chat="Ò"                       # IRC/Chat icon
 icon_music="Î"                      # Music icon
 icon_prog="Â"                       # Window icon
 icon_contact="Á"                    # Contact icon
-icon_wsp="É"                        # Workspace icon
+icon_wsp="Ç"                        # Workspace icon
 icon_battery=""                    # Battery icon
 icon_charging="+"                   # Charging icon
 
