@@ -1,0 +1,6 @@
+#!/bin/bash
+
+[[ $1 == "i" ]] && side=inner || side=outer
+[[ $2 == "a" ]] && inc=all || inc=current
+
+i3 gaps $side $inc set $3 > /dev/null

@@ -1,2 +1,0 @@
-#!/bin/bash
-i3 gaps outer all set $1 > /dev/null
