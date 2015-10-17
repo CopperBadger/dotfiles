@@ -1,24 +1,59 @@
 # --- APPLY XRES BEGIN
-c_black_d="1d2021"
-c_red_l="fb4934"
-c_black_l="504945"
-c_magenta_d="b16286"
-c_green_l="b8bb26"
-c_cyan_d="689d6a"
-c_white_l="fbf1c7"
-c_yellow_l="fabd2f"
-c_blue_d="458588"
+c_cursor="a9a9a9"
 c_yellow_d="d79921"
+c_blue_d="458588"
+c_foreground="ebdbb2"
 c_cyan_l="8ec07c"
 c_green_d="98971a"
 c_white_d="a89984"
+c_black_l="504945"
 c_blue_l="83a598"
-c_red_d="cc241d"
-c_magenta_l="d3869b"
-c_cursor="a9a9a9"
-c_foreground="ebdbb2"
 c_background="282828"
+c_cyan_d="689d6a"
+c_magenta_d="b16286"
+c_red_l="fb4934"
+c_magenta_l="d3869b"
+c_red_d="cc241d"
+c_white_l="fbf1c7"
+c_black_d="1d2021"
+c_green_l="b8bb26"
+c_yellow_l="fabd2f"
 # --- APPLY XRES END
 
+tod=$(timeofday)
+
+bg="$c_background"  # Default background for undefined times of day
+fg="$c_foreground"
+case $tod in
+  "Late Night")
+    bg="$c_black_d"
+    fg="$c_black_l"
+    ;;
+  "Early Morning")
+    bg="$c_blue_d"
+    fg="$c_black_d"
+    ;;
+  "Morning")
+    bg="$c_cyan_d"
+    fg="$c_white_l"
+    ;;
+  "Afternoon")
+    bg="$c_white_l"
+    fg="$c_black_l"
+    ;;
+  "Late Afternoon")
+    bg="$c_yellow_l"
+    fg="$c_red_d"
+    ;;
+  "Evening")
+    bg="$c_yellow_d"
+    fg="$c_black_d"
+    ;;
+  "Night")
+    bg="$c_background"
+    fg="$c_blue_l"
+    ;;
+esac
+
 width=`myres | cut -d 'x' -f 1`
-rofi -show run -width $width -fg "#$c_blue_d" -bg "#$c_background" -hlbg "#$c_black_l" -hlfg "#$c_blue_l" -bc "#$c_background" -location 0 -lines 8 -bw 0 -font "DejaVu Sans Mono 12" -padding 400 -separator-style none -opacity 85
+rofi -show run -width $width -fg "#$fg" -bg "#$bg" -hlbg "#$fg" -hlfg "#$bg" -bc "#$c_background" -location 0 -lines 8 -bw 0 -font "Inconsolata Bold 16" -padding 400 -separator-style none -opacity 85
