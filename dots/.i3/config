@@ -25,6 +25,17 @@ set $left h
 set $right l
 set $mod Mod4
 
+set $ws1 1:web
+set $ws2 2:sh
+set $ws3 3:app
+set $ws4 4:mail
+set $ws5 5:sh2
+set $ws6 6:sh3
+set $ws7 7:sh7
+set $ws8 8:sh8
+set $ws9 9:sh9
+set $ws10 10:sh10
+
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -39,25 +50,25 @@ new_float pixel 2
 
 # Xresource-based. Do not edit manually, will be overwritten by script
 # --- APPLY XRES BEGIN
-set $c_cursor #a9a9a9
-set $c_yellow_d #d79921
-set $c_blue_d #458588
-set $c_foreground #ebdbb2
-set $c_cyan_l #8ec07c
-set $c_green_d #98971a
-set $c_white_d #a89984
-set $c_black_l #504945
-set $c_blue_l #83a598
-set $c_background #282828
-set $c_cyan_d #689d6a
-set $c_magenta_d #b16286
-set $c_red_l #fb4934
-set $c_magenta_l #d3869b
-set $c_red_d #cc241d
-set $c_white_l #fbf1c7
-set $c_black_d #1d2021
-set $c_green_l #b8bb26
 set $c_yellow_l #fabd2f
+set $c_white_d #a89984
+set $c_cyan_l #8ec07c
+set $c_yellow_d #d79921
+set $c_cyan_d #689d6a
+set $c_white_l #fbf1c7
+set $c_green_d #98971a
+set $c_cursor #ebdbb2
+set $c_magenta_l #d3869b
+set $c_green_l #b8bb26
+set $c_red_l #fb4934
+set $c_magenta_d #b16286
+set $c_blue_d #458588
+set $c_blue_l #83a598
+set $c_black_d #1d2021
+set $c_red_d #cc241d
+set $c_foreground #ebdbb2
+set $c_background #212121
+set $c_black_l #504945
 # --- APPLY XRES END
 
 #class                  border        backgr.       text          split
@@ -103,10 +114,10 @@ bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+u split h
@@ -142,33 +153,34 @@ bindsym $mod+a focus parent
 # bindsym $mod+minus scratchpad show
 
 # switch to workspace
-bindsym $mod+1 workspace 1:web
-bindsym $mod+2 workspace 2:sh
-bindsym $mod+3 workspace 3:app
-bindsym $mod+4 workspace 4:mail
-bindsym $mod+5 workspace 5:sh2
-bindsym $mod+6 workspace 6:sh3
-bindsym $mod+7 workspace 7:sh4
-bindsym $mod+8 workspace 8:sh5
-bindsym $mod+9 workspace 9:sh6
-bindsym $mod+0 workspace 10:sh7
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:web
-bindsym $mod+Shift+2 move container to workspace 2:sh
-bindsym $mod+Shift+3 move container to workspace 3:app
-bindsym $mod+Shift+4 move container to workspace 4:mail
-bindsym $mod+Shift+5 move container to workspace 5:sh2
-bindsym $mod+Shift+6 move container to workspace 6:sh3
-bindsym $mod+Shift+7 move container to workspace 7:sh4
-bindsym $mod+Shift+8 move container to workspace 8:sh5
-bindsym $mod+Shift+9 move container to workspace 9:sh6
-bindsym $mod+Shift+0 move container to workspace 10:sh7
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file (disabling this because electro7's bar makes my CPU cry on restart)
 # bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+# DISABLED because of lemonbar perl script error causes CPU freakout
+# bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+e exec i3-msg exit
@@ -200,16 +212,13 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# bar {
-#         status_command i3status
-# }
-# bar {
-#   i3bar_command bar
-#   status_command /usr/lib/python3.4/site-packages/powerline/bindings/i3/powerline-i3.py --i3
-#   font pango:Terminus 8
-# }
+# Window assignments
+assign [class="Chromium$"] $ws1
+assign [class="Wicd"] $ws3
+assign [class="Telegram"] $ws4
+assign [class="Thunderbird"] $ws4
+
+
 bar {
   i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh
 }

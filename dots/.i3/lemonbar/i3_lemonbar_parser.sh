@@ -48,7 +48,7 @@ while read -r line ; do
       # wlan
       if [ "${sys_arr[8]}" == "down" ]; then
         wland_v="×"; wlanu_v="×";
-        wlan_cback=${color_sec_b2}; wlan_cicon=${color_disable}; wlan_cfore=${color_disable};
+        wlan_cback=${color_sec_b2}; wlan_cicon=${color_sec_b3}; wlan_cfore=${color_sec_b3};
       else
         wland_v=${sys_arr[8]}K; wlanu_v=${sys_arr[9]}K;
         if [ ${wland_v:0:-3} -gt ${net_alert} ] || [ ${wlanu_v:0:-3} -gt ${net_alert} ]; then
@@ -78,9 +78,18 @@ while read -r line ; do
 
     VOL*)
       # Volume:
-      #   [0] Volume integer
+      #   [0] Muted indicator: (M=Muted / (anything else)=Unmuted)
       #   [1] On/off (muted) status (1=Unmuted / 0=Muted)
-      vol="%{F${color_sec_b2}}${sep_left}%{F${color_icon} B${color_sec_b2}} %{T2}${icon_vol}%{F- T1} ${line#???}"
+      vol_arr=(${line#???})
+      vol_bkg=$color_sec_b2
+      vol_frg=$color_fore
+      vol_txt=${vol_arr[1]}
+      if [[ ${vol_arr[0]} == "M" ]]; then
+        vol_bkg=$color_sec_b1
+        vol_frg=$color_icon
+        vol_txt="($vol_txt)"
+      fi
+      vol="%{F${vol_bkg}}${sep_left}%{F${color_icon} B${vol_bkg}} %{T2}${icon_vol}%{F${vol_frg} T1} $vol_txt%{F${color_fore}}"
       ;;
 
     GMA*)
@@ -111,7 +120,7 @@ while read -r line ; do
       mpd_arr=(${line#???})
       if [ -z "${line#???}" ]; then
         song="none";
-      elif [ "${mpd_arr[0]}" == "error:" ]; then
+      elif [ "${mpd_arr[1]}" == "error:" ]; then
         song="mpd off";
       else
         song="${line#???}";
@@ -166,7 +175,6 @@ while read -r line ; do
     WIN*)
       # window title
       title=$(xprop -id ${line#???} | awk '/_NET_WM_NAME/{$1=$2="";print}' | cut -d'"' -f2)
-      # echo "Setting window title display to ${title}" >> bar.log
       #title="%{F${color_head} B${color_sec_b2}}${sep_right}%{F${color_head} B${color_sec_b2}%{T2} ${icon_prog} %{F${color_sec_b2} B-}${sep_right}%{F- B- T1} ${title}"
       title="%{F${color_head} B${color_sec_b2}}${sep_right}%{F${color_icon} B${color_sec_b2} T2} ${icon_prog} %{F${color_sec_b2} B-}${sep_right}%{F- B- T1} ${title}"
       ;;

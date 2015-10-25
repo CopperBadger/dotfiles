@@ -36,14 +36,13 @@ conky -c $(dirname $0)/i3_lemonbar_conky > "${panel_fifo}" &
 cnt_vol=${upd_vol}
 cnt_mail=${upd_mail}
 cnt_mpd=${upd_mpd}
+cnt_bat=${upd_bat}
 
 while :; do
 
   # Volume, "VOL"
   if [ $((cnt_vol++)) -ge ${upd_vol} ]; then
-    # amixer get Master | grep "${snd_cha}" | awk -F'[]%[]' '/%/ {if ($7 == "off") {print "VOL×\n"} else {printf "VOL%d%%%%\n", $2}}' > "${panel_fifo}" &
-#     echo "Writing volume to fifo" >> bar.log
-    echo "VOL$(volume-status)" > "${panel_fifo}" &
+    echo "VOL$(volume-status-2)" > "${panel_fifo}" &
     cnt_vol=0
   fi
 
