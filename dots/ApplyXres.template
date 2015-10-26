@@ -1,0 +1,162 @@
+settings:
+  background                $c_background
+  foreground                $c_foreground
+  caret                     $c_red_l
+  invisibles                $c_black_l
+  lineHighlight             $c_white_l
+  selection                 $c_black_l
+  findHighlight             $c_red_l
+  findHighlightForeground   $c_foreground
+  selectionBorder           $c_white_d
+  activeGuide               $c_yellow_l
+  bracketsForeground        $c_white_d
+  bracketsOptions           $c_white_l
+  bracketContentsForeground $c_foreground
+  bracketContentsOptions    $c_white_l
+  tagsOptions               $c_white_l
+
+name Comment
+scope comment
+settings:
+  foreground $c_black_l
+
+name String
+scope string
+settings:
+  foreground $c_blue_l
+
+name Number
+scope constant.numeric
+settings:
+  foreground $c_magenta_l
+
+name Built-in constant
+scope contant.language
+settings:
+  foreground $c_red_l
+
+name User-defined constant
+scope constant.character, constant.other
+settings:
+  foreground $c_red_d
+
+name Variables
+scope variable
+settings:
+  fontStyle bold
+  foreground $c_red_l
+
+name Keyword
+scope keyword
+settings:
+  foreground $c_blue_d
+
+name Storage
+scope storage
+settings:
+  foreground $c_blue_d
+
+name Storage type
+scope storage.type
+settings:
+  foreground $c_red_d
+
+name Class name
+scope entity.name.class
+settings:
+  fontStyle underline
+  foreground $c_yellow_l
+
+name Inherited class
+scope entity.other.inherited-class
+settings:
+  fontStyle italic underline
+  foreground $c_yellow_l
+
+name Function name
+scope entity.name.function
+settings:
+  fontStyle bold
+  foreground $c_yellow_l
+
+name Function argument
+scope variable.parameter
+settings:
+  fontStyle italic
+  foreground $c_yellow_d
+
+name Tag name
+scope entity.name.tag
+settings:
+  foreground $c_red_d
+
+name Tag attribute
+scope entity.other.attribute-name
+settings:
+  foreground $c_cyan_l
+
+name Library function
+scope support.function
+settings:
+  foreground $c_yellow_l
+
+name Library constant
+scope support.constant
+settings:
+  fontStyle bold
+  foreground $c_yellow_d
+
+name Library class/type
+scope support.type, support,class
+settings:
+  foreground $c_yellow_d
+
+name Libary variable
+scope support.other.variables
+settings:
+  foreground $c_yellow_l
+
+name Invalid
+scope invalid
+settings:
+  background $c_red_l
+  forefround $c_white_l
+
+name Invalid deprecated
+scope invalid.deprecated
+settings:
+  background $c_red_l
+  foreground $c_white_l
+
+name JSON String
+scope meta.structure.dictionary.json string.quoted.double.json
+settings:
+  foreground $c_white_l
+
+name diff.header
+scope meta.diff, meta.diff.header
+settings:
+  foreground $c_green_d
+
+name diff.deleted
+scope markup.deleted
+settings:
+  foreground $c_red_d
+
+name diff.inserted
+scope markup.inserted
+settings:
+  foreground $c_green_l
+
+name diff.changed
+scope markup.changed
+settings:
+  foreground $c_blue_l
+
+scope constant.numeric.line-number.find-in-files - match
+settings:
+  foreground $c_yellow_l
+
+scope entity.name.filename.find-in-files
+settings:
+  foreground $c_yellow_l

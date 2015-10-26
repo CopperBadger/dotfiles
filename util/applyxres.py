@@ -215,3 +215,75 @@ for k in colors:
   arr.append(k+"=\""+colors[k]+"\"")
 
 replace_in_file(home+"/sbin/myrofi", "\n".join(arr))
+
+# 6. Sublime Text theme
+
+f = open(home+"/.config/sublime-text-3/Packages/Colorsublime-Themes/Xres-Generated.tmTheme", "w")
+template = open(home+"/.config/sublime-text-3/Packages/User/ApplyXres.template", "r")
+
+header = """<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+\t<key>name</key>
+\t<string>APPLYXRES Generated Theme</string>
+\t<key>settings</key>
+\t<array>
+"""
+
+f.write(header)
+
+template_lines = template.readlines()
+plist_pat = re.compile("^(\s*)([a-zA-Z0-9]+)(:)?(?:\s+(.+))?$")
+
+inDict = 0
+def numsp():
+  return "\t"*(inDict+2)
+
+def write_tag(name, value):
+  f.write(numsp()+"<{0}>{1}</{0}>\n".format(name, value))
+
+for line in template_lines:
+  if not line.strip():
+    while inDict > 0:
+      inDict -= 1
+      f.write(numsp()+"</dict>\n")
+    continue
+
+  if inDict == 0:
+    f.write(numsp()+"<dict>\n")
+    inDict = 1
+
+  tkn = plist_pat.findall(line)
+  if len(tkn) and len(tkn[0]) == 4:
+    tkn = tkn[0]
+    write_tag("key", tkn[1])
+    if len(tkn[-1]):
+      value = tkn[-1]
+      if tkn[-1][0] == "$":
+        cname = value[1:]
+        if cname in colors:
+          value = "#"+colors[cname]
+        else:
+          print("Sublime Text template error: color \""+value+"\" not found")
+          value = "#FFF000"
+      write_tag("string", value)
+    elif len(tkn[2]):
+      f.write(numsp()+"<dict>\n")
+      inDict += 1
+  else:
+    print("Error: bad line",line)
+
+while inDict > 0:
+  inDict -= 1
+  f.write(numsp()+"</dict>\n")
+
+footer = """\t</array>
+</dict>
+</plist>
+"""
+
+f.write(footer)
+
+template.close()
+f.close()
