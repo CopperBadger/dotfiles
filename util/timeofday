@@ -14,7 +14,7 @@ elif (( hour >= 8 )) && (( hour <= 11 )); then
 elif (( hour >= 12 )) && (( hour <= 15 )); then
   # 12:00p - 3:59p
   echo "Afternoon"
-elif (( hour >= 16 )) && (( hour <= 18 )); then
+elif (( hour >= 16 )) && (( hour <= 17 )); then
   # 4:00p - 5:59p
   echo "Late Afternoon"
 elif (( hour >= 18 )) && (( hour <= 20 )); then
