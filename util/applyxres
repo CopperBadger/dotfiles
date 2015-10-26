@@ -190,7 +190,7 @@ tint_lookup = {
   "medium": -1 * contrast,
 }
 
-f = open("/usr/lib/python3.4/site-packages/powerline/config_files/colors.json.default", "r")
+f = open(home+"/pl-conf/colors.json.default", "r")
 src = json.load(f)
 f.close()
 
@@ -203,7 +203,7 @@ for k in plcolors:
         col = hex_lighten(col, tint_lookup[t])
       src['colors'][k] = int(BestMatch(col))
 
-f = open("/usr/lib/python3.4/site-packages/powerline/config_files/colors.json", "w")
+f = open(home+"/pl-conf/colors.json", "w")
 json.dump(src,f,indent=2)
 f.close()
 
