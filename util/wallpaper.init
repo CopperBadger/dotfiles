@@ -1,0 +1,28 @@
+#!/bin/bash
+
+while true; do
+  echo -n "Enter path to default background image: "
+  read defimg
+  if [[ ! -e $defimg ]]; then
+    echo "Error: $defimg: No such file"
+  else
+    break
+  fi
+done
+
+mkdir -p ~/.wallpapers/
+
+ln -s $defimg "$HOME/.wallpapers/Late Night"
+ln -s $defimg "$HOME/.wallpapers/Early Morning"
+ln -s $defimg "$HOME/.wallpapers/Morning"
+ln -s $defimg "$HOME/.wallpapers/Afternoon"
+ln -s $defimg "$HOME/.wallpapers/Late Afternoon"
+ln -s $defimg "$HOME/.wallpapers/Evening"
+ln -s $defimg "$HOME/.wallpapers/Night"
+ln -s $defimg "$HOME/.wallpapers/default"
+ln -s "$HOME" "$HOME/.wallpapers/random-src"
+
+echo "NORMAL" > ~/.wallpapers/mode
+
+echo "Your wallpapers directory has been created! Pleace refer to the README
+for information on configuring."

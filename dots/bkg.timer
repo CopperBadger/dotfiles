@@ -1,0 +1,10 @@
+[Unit]
+Description=Background Switch Timer
+
+[Timer]
+OnCalendar=hourly
+Persistent=false
+Unit=bkg.service
+
+[Install]
+WantedBy=timers.target

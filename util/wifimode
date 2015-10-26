@@ -1,3 +1,4 @@
-ip link set wlp2s0 down
-iwconfig wlp2s0 mode $1
-ip link set wlp2s0 up
+iname=wlp2s0
+ip link set $iname down
+iwconfig $iname mode $1
+ip link set $iname up
