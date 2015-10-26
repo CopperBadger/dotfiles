@@ -1,6 +1,21 @@
 #!/bin/bash
 
-[[ $1 == "i" ]] && side=inner || side=outer
-[[ $2 == "a" ]] && inc=all || inc=current
-
-i3 gaps $side $inc set $3 > /dev/null
+case $1 in
+  focus)
+    i3 gaps outer current set 0
+    i3 gaps inner current set 0
+    ;;
+  pretty)
+    i3 gaps outer current set 64
+    i3 gaps inner current set 12
+    ;;
+  work)
+    i3 gaps outer current set 16
+    i3 gaps inner current set 8
+    ;;
+  *)
+    i3 gaps outer current set $1
+    i3 gaps inner current set $2
+    ;;
+  
+esac > /dev/null
