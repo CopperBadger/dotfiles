@@ -1,0 +1,21 @@
+#!/bin/bash
+
+mode=`cat $HOME/.wallpapers/mode`
+
+path=`readlink -f "$HOME/.wallpapers/default"`
+case $mode in
+  DAY)
+    if [[ -z "$1" ]]; then
+      tod=`timeofday`
+    else
+      tod="$1"
+    fi
+    [[ -e "$HOME/.wallpapers/$tod" ]] || tod=default
+    path=`readlink -f "$HOME/.wallpapers/$tod"`
+    ;;
+  RANDOM)
+    # TODO -- Select random from ~/.wallpapers/random-src
+    ;;
+esac
+
+feh --bg-fill `readlink -f "$path"`
