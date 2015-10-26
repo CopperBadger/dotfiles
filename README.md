@@ -152,8 +152,8 @@ For my `.vimrc` to work, you'll need [Vundle](https://github.com/VundleVim/Vundl
 I've written the following utiliy scripts to manage the system:
 
 * `applyxres` -- Python script that will apply the colors defined in
-  `~/.Xresources` to color configuration throughout the system.
-* `batmon` -- Basically userless battery monitor, but hey, maybe you'll find a
+  `~/.Xresources` to color configuration files throughout the system.
+* `batmon` -- Basically useless battery monitor, but hey, maybe you'll find a
   reason to use it. :shrugs: Use Ctrl+c to exit.
 * `batpct` -- Outputs battery percentage to four points of percision. I used to
   use this for the bar until I replaced it with `batstat`, and still use it as
