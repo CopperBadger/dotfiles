@@ -50,25 +50,25 @@ new_float pixel 2
 
 # Xresource-based. Do not edit manually, will be overwritten by script
 # --- APPLY XRES BEGIN
-set $c_yellow_l #fabd2f
-set $c_white_d #a89984
-set $c_cyan_l #8ec07c
-set $c_yellow_d #d79921
-set $c_cyan_d #689d6a
-set $c_white_l #fbf1c7
-set $c_green_d #98971a
-set $c_cursor #ebdbb2
+set $c_black_l #504945
 set $c_magenta_l #d3869b
-set $c_green_l #b8bb26
-set $c_red_l #fb4934
-set $c_magenta_d #b16286
+set $c_white_l #fbf1c7
 set $c_blue_d #458588
-set $c_blue_l #83a598
-set $c_black_d #1d2021
+set $c_cyan_d #689d6a
+set $c_green_d #98971a
 set $c_red_d #cc241d
+set $c_cursor #ebdbb2
+set $c_green_l #b8bb26
 set $c_foreground #ebdbb2
 set $c_background #212121
-set $c_black_l #504945
+set $c_magenta_d #b16286
+set $c_black_d #1d2021
+set $c_red_l #fb4934
+set $c_white_d #a89984
+set $c_yellow_l #fabd2f
+set $c_yellow_d #d79921
+set $c_blue_l #83a598
+set $c_cyan_l #8ec07c
 # --- APPLY XRES END
 
 #class                  border        backgr.       text          split
@@ -214,6 +214,7 @@ bindsym $mod+r mode "resize"
 
 # Window assignments
 assign [class="Chromium$"] $ws1
+assign [class="Firefox$"] $ws1
 assign [class="Wicd"] $ws3
 assign [class="Telegram"] $ws4
 assign [class="Thunderbird"] $ws4

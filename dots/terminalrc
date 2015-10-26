@@ -1,5 +1,7 @@
 [Configuration]
 FontName=Inconsolata-dz for Powerline Bold 9
+# FontName=Fira Mono for Powerline Bold 10
+# FontName=Fira Mono Bold 9
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBordersDefault=TRUE
@@ -18,11 +20,10 @@ MiscTabPosition=GTK_POS_TOP
 MiscHighlightUrls=TRUE
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
-BackgroundDarkness=1
-
+BackgroundDarkness=1.000000
 # --- APPLY XRES BEGIN
 ColorForeground=#ebebdbdbb2b2
-ColorBackground=#282828282828
-ColorCursor=#a9a9a9a9a9a9
+ColorBackground=#212121212121
+ColorCursor=#ebebdbdbb2b2
 ColorPalette=#1d1d20202121;#cccc24241d1d;#989897971a1a;#d7d799992121;#454585858888;#b1b162628686;#68689d9d6a6a;#a8a899998484;#505049494545;#fbfb49493434;#b8b8bbbb2626;#fafabdbd2f2f;#8383a5a59898;#d3d386869b9b;#8e8ec0c07c7c;#fbfbf1f1c7c7
 # --- APPLY XRES END

@@ -1,23 +1,23 @@
 # --- APPLY XRES BEGIN
-c_cursor="a9a9a9"
-c_yellow_d="d79921"
-c_blue_d="458588"
-c_foreground="ebdbb2"
-c_cyan_l="8ec07c"
-c_green_d="98971a"
-c_white_d="a89984"
 c_black_l="504945"
-c_blue_l="83a598"
-c_background="282828"
-c_cyan_d="689d6a"
-c_magenta_d="b16286"
-c_red_l="fb4934"
 c_magenta_l="d3869b"
-c_red_d="cc241d"
 c_white_l="fbf1c7"
-c_black_d="1d2021"
+c_blue_d="458588"
+c_cyan_d="689d6a"
+c_green_d="98971a"
+c_red_d="cc241d"
+c_cursor="ebdbb2"
 c_green_l="b8bb26"
+c_foreground="ebdbb2"
+c_background="212121"
+c_magenta_d="b16286"
+c_black_d="1d2021"
+c_red_l="fb4934"
+c_white_d="a89984"
 c_yellow_l="fabd2f"
+c_yellow_d="d79921"
+c_blue_l="83a598"
+c_cyan_l="8ec07c"
 # --- APPLY XRES END
 
 tod=$(timeofday)
@@ -42,12 +42,12 @@ case $tod in
     fg="$c_black_l"
     ;;
   "Late Afternoon")
-    bg="$c_yellow_l"
-    fg="$c_red_d"
-    ;;
-  "Evening")
     bg="$c_yellow_d"
     fg="$c_black_d"
+    ;;
+  "Evening")
+    bg="$c_red_d"
+    fg="$c_white_l"
     ;;
   "Night")
     bg="$c_background"

@@ -1,7 +1,7 @@
 ! --- XRES SRC
-*cursorColor:   #a9a9a9
+*cursorColor:   #ebdbb2
 *foreground:    #ebdbb2
-*background:    #282828
+*background:    #212121
 
 !black
 *color0:    #1d2021
