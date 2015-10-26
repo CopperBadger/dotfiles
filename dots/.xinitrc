@@ -4,6 +4,6 @@
 # exec bspwm
 #
 compton --config "$HOME/.config/compton/compton.conf" &
-"$HOME/.fehbg"
+update-wallpaper
 pulseaudio --start
 exec i3
