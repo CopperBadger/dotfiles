@@ -166,6 +166,8 @@ I've written the following utiliy scripts to manage the system:
 * `gaps` -- Modifies the window gaps provided by `i3-gaps`. Takes a descriptive
   string, either "pretty", "work", or "focus", or a pair of integers to manually
   set the outer and inner gaps for the current workspace, respectively.
+* `lemonvol` -- (29 Oct 2015) Volume control script that changes bar immediately
+  after changing volume.
 * `myres` -- Terrible, rotten screen resolution script, don't use it.
 * `myrofi` -- Custom rofi launching script, one of the targets for `applyxres`
 * `timeofday` -- Prints out a string describing the time of day, which can be

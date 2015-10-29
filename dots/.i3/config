@@ -188,11 +188,9 @@ bindsym $mod+Shift+e exec i3-msg exit
 # ----
 # Media Keybindings
 # ----
-bindsym $mod+plus exec pulseaudio-ctl up
-bindsym $mod+minus exec pulseaudio-ctl down
-bindsym XF86AudioRaiseVolume exec pulseaudio-ctl up
-bindsym XF86AudioLowerVolume exec pulseaudio-ctl down
-bindsym XF86AudioMute exec pulseaudio-ctl mute
+bindsym XF86AudioRaiseVolume exec lemonvol +
+bindsym XF86AudioLowerVolume exec lemonvol -
+bindsym XF86AudioMute exec lemonvol M
 
 # ----
 # Resize Mode Options

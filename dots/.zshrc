@@ -38,8 +38,8 @@ bindkey "^K" up-line-or-history
 
 # Aliases
 alias ls='ls --color=always'
-alias vol='pulseaudio-ctl set'
-alias mute='pulseaudio-ctl mute'
+alias vol='lemonvol'
+alias mute='lemonvol M'
 alias bl='xbacklight -set'
 alias fal='cd $HOME/Documents/School/F15/$1'
 alias bio='cd $HOME/Documents/School/F15/BIO/'
