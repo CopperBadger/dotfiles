@@ -22,8 +22,7 @@ mkfifo "${panel_fifo}"
 xprop -spy -root _NET_ACTIVE_WINDOW | sed -un 's/.*\(0x.*\)/WIN\1/p' > "${panel_fifo}" &
 
 # i3 Workspaces, "WSP"
-# TODO : Restarting I3 breaks the IPC socket con. :(
-$(dirname $0)/i3_workspaces.pl > "${panel_fifo}" &
+$(dirname $0)/i3_workspaces.py > ${panel_fifo} &
 
 # IRC, "IRC"
 # only for init
