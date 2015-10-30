@@ -1,0 +1,2 @@
+#!/bin/bash
+xprop -root _NET_ACTIVE_WINDOW | sed -un 's/.*\(0x.*\)/\1/p'

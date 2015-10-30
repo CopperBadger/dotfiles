@@ -16,6 +16,7 @@ upd_vol=3                           # Volume update
 upd_mail=300                        # Mail check update
 upd_mpd=5                           # MPD song update
 upd_bat=5                           # Battey update
+upd_win=2                           # Window title (xprop -spy only updates on focus change)
 
 # --- APPLY XRES BEGIN
 c_black_l="#ff504945"

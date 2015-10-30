@@ -37,6 +37,7 @@ cnt_vol=${upd_vol}
 cnt_mail=${upd_mail}
 cnt_mpd=${upd_mpd}
 cnt_bat=${upd_bat}
+cnt_win=${upd_win}
 
 while :; do
 
@@ -63,8 +64,13 @@ while :; do
   # Battey, "BAT"
   if [ $((cnt_bat++)) -ge ${upd_bat} ]; then
     echo "$(batstat)" > "${panel_fifo}" &
-
     cnt_bat=0
+  fi
+
+  # Periodic Window title update (Ticket #1)
+  if [ $((cnt_win++)) -ge ${upd_win} ]; then
+    echo "WIN`mywin`" > "${panel_fifo}" &
+    cnt_win=0
   fi
 
   # Finally, wait 1 second
