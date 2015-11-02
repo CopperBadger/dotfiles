@@ -208,5 +208,5 @@ Exit i3 with Super+Shift+e, ~~but be advised that there is a bug in electro7's
 bar scripts that causes perl to explode after logging out. You should either
 immediately poweroff or reboot, or kill off perl (`pkill perl`) to save your CPU
 from being tortured. I hope this gets fixed one day.~~ and don't worry about
-Perl throwing a conniption because those day are done-city! You will probably
+Perl throwing a conniption because those days are done-city! You will probably
 have to manually kill lemonbar and xargs though (`pkill lemonbar; pkill xargs`).
