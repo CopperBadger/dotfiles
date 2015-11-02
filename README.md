@@ -54,9 +54,11 @@ Linux-- I can't make any guarantees about its compatibility with other distros.
 * `ranger` -- Terminal file browser. Used in `bkg` script to easily browse
   available wallpapers.
 * `rofi` -- Super-nice launcher, better than dmenu. Needed for `myrofi`.
-* `xfce4-terminal` -- Terminal emulator, the only one supported by `applyxres`
-  at the moment.
 * `xprop` -- X11 window info program, makes the window title section work.
+
+Xfce4-terminal, xterm, and rxvt-unicode (aka urxvt) have all been tested and
+supported with my color setup. Any other `~/.Xresources`-compatible emulator
+should be fine as well. In case you're wondering, I use urxvt.
 
 ## Installation
 
@@ -72,7 +74,7 @@ Linux-- I can't make any guarantees about its compatibility with other distros.
   except for:
   * `compton.conf`, which should be placed in `~/.config/compton` (create this
     directory if it does not already exist)
-  * `terminalrc`, the xfce4-terminal configuration, which should be placed in
+  * `terminalrc`, if you use Xfce4-terminal, which should be placed in
     `~/.config/xfce4/terminal` (create this directory if it does not already
     exist as well)
   * `ApplyXres.template`, if you use Sublime Text, which should be placed in
@@ -129,6 +131,10 @@ which there are two:
 Note: If the contents of the `~/.wallpapers/mode` file are not recognized, 
 "Normal" mode is assume.
 
+Take care that if you move or removed a background image referenced by your
+wallpaper setup, the scripts will not function properly. You will have to
+create the symlinks in your `~/.wallpapers` directory manually.
+
 ### Sublime Text Theme
 
 To use the Sublime Text theme, install the
@@ -169,6 +175,8 @@ I've written the following utiliy scripts to manage the system:
 * `lemonvol` -- (29 Oct 2015) Volume control script that changes bar immediately
   after changing volume.
 * `myres` -- Terrible, rotten screen resolution script, don't use it.
+* `mywin` -- (30 Oct 2015) Gets the id of the currently focused window, just a
+  simple wrapper for xprop.
 * `myrofi` -- Custom rofi launching script, one of the targets for `applyxres`
 * `timeofday` -- Prints out a string describing the time of day, which can be
   either "Late Night", "Early Morning", "Morning", "Afternoon", "Late Afternoon"
@@ -196,7 +204,9 @@ to change your system's color scheme is edit your `~/.Xresources` file and run
 Refer to `~/.i3/config` for keybindings-- it's mostly stock, with a few changes.
 Arrow keys are disabled in favor of vim-style movement. Same thing for `.vimrc`.
 
-Exit i3 with Super+Shift+e, but be advised that there is a bug in electro7's
+Exit i3 with Super+Shift+e, ~~but be advised that there is a bug in electro7's
 bar scripts that causes perl to explode after logging out. You should either
 immediately poweroff or reboot, or kill off perl (`pkill perl`) to save your CPU
-from being tortured. I hope this gets fixed one day.
+from being tortured. I hope this gets fixed one day.~~ and don't worry about
+Perl throwing a conniption because those day are done-city! You will probably
+have to manually kill lemonbar and xargs though (`pkill lemonbar; pkill xargs`).
