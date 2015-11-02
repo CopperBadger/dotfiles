@@ -13,7 +13,7 @@ let $PYTHONPATH='/usr/lib/python3.4/site-packages'
 
 " let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
-" Plugin 'mattn/emmet-vim'
+Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
@@ -60,6 +60,11 @@ let g:ctrlp_show_hidden=1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-o>"
 let g:UltiSnipsJumpBackwardTrigger="<c-i>"
+
+"
+"
+"
+let g:user_emmet_leader_key='<C-c>'
 
 
 " ------------------
