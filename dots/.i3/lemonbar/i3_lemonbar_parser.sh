@@ -26,7 +26,7 @@ while read -r line ; do
       date="%{F${color_sec_b1}}${sep_left}%{F${color_icon} B${color_sec_b1}} %{T2}${icon_clock}%{F- T1} ${date}"
 
       # time
-      time="%{F${color_clock_edge}}${sep_left}%{F${color_clock} B${color_clock_edge}}${sep_left}%{F${color_fore} B${color_clock}} ${sys_arr[3]} %{F- B-}"
+      time="%{F${color_clock_edge}}${sep_left}%{F${color_clock} B${color_clock_edge}}${sep_left}%{F${color_back} B${color_clock}} ${sys_arr[3]} %{F- B-}"
 
       # cpu
       if [ ${sys_arr[4]} -gt ${cpu_alert} ]; then
@@ -180,7 +180,7 @@ while read -r line ; do
 
     WNM*)
       # Window title (string)
-      title=${line#???}
+      title=$(echo ${line#???} | xargs)
       title="%{F${color_head} B${color_sec_b2}}${sep_right}%{F${color_icon} B${color_sec_b2} T2} ${icon_prog} %{F${color_sec_b2} B-}${sep_right}%{F- B- T1} ${title}"
       ;;
       

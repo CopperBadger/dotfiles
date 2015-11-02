@@ -16,28 +16,28 @@ upd_vol=3                           # Volume update
 upd_mail=300                        # Mail check update
 upd_mpd=5                           # MPD song update
 upd_bat=5                           # Battey update
-upd_win=2                           # Window title (xprop -spy only updates on focus change)
+upd_win=1                           # Window title (xprop -spy only updates on focus change)
 
 # --- APPLY XRES BEGIN
-c_black_l="#ff504945"
-c_magenta_l="#ffd3869b"
-c_white_l="#fffbf1c7"
-c_blue_d="#ff458588"
-c_cyan_d="#ff689d6a"
-c_green_d="#ff98971a"
-c_red_d="#ffcc241d"
-c_cursor="#ffebdbb2"
-c_green_l="#ffb8bb26"
-c_foreground="#ffebdbb2"
-c_background="#ff212121"
-c_magenta_d="#ffb16286"
-c_black_d="#ff1d2021"
-c_red_l="#fffb4934"
-c_white_d="#ffa89984"
-c_yellow_l="#fffabd2f"
-c_yellow_d="#ffd79921"
-c_blue_l="#ff83a598"
-c_cyan_l="#ff8ec07c"
+c_red_l="#ffCC6666"
+c_green_l="#ffBDE077"
+c_cyan_d="#ff72AD8C"
+c_cursor="#fffff000"
+c_yellow_d="#ffFEA63C"
+c_green_d="#ffB7CE42"
+c_yellow_l="#ffFFE863"
+c_foreground="#ffddeedd"
+c_blue_l="#ffAACCBB"
+c_magenta_l="#ffff5879"
+c_black_d="#ff25374A"
+c_background="#ff131D24"
+c_magenta_d="#ffF26B9E"
+c_black_l="#ff3A526B"
+c_blue_d="#ff66AABB"
+c_white_l="#ffFFFFFF"
+c_cyan_l="#ff9FE3BC"
+c_red_d="#ffBD4A4A"
+c_white_d="#ffDDEEDD"
 # --- APPLY XRES END
 
 # color definitions 
@@ -54,12 +54,12 @@ color_chat="$c_magenta_l"              # Background color for chat alert
 color_cpu="$c_magenta_l"               # Background color for cpu alert
 color_net="$c_white_l"               # Background color for net alert
 color_disable="$c_black_l"           # Foreground for disable elements
-color_clock="$c_magenta_d"             # Color for clock
-color_clock_edge="$c_magenta_l"             # Color for clock
+color_clock="$c_yellow_d"             # Color for clock
+color_clock_edge="$c_yellow_l"             # Color for clock
 
-color_success="$c_green_l"           # Positive color for good times
+color_success="$c_green_d"           # Positive color for good times
 color_warning="$c_yellow_l"           # Yellow color for warnings (eg, low battery)
-color_critical="$c_red_d"          # Red color for critical meters
+color_critical="$c_red_l"          # Red color for critical meters
 
 #default space between sections
 if [ ${res_w} -gt 1024 ]; then

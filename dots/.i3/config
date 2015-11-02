@@ -50,40 +50,40 @@ new_float pixel 2
 
 # Xresource-based. Do not edit manually, will be overwritten by script
 # --- APPLY XRES BEGIN
-set $c_black_l #504945
-set $c_magenta_l #d3869b
-set $c_white_l #fbf1c7
-set $c_blue_d #458588
-set $c_cyan_d #689d6a
-set $c_green_d #98971a
-set $c_red_d #cc241d
-set $c_cursor #ebdbb2
-set $c_green_l #b8bb26
-set $c_foreground #ebdbb2
-set $c_background #212121
-set $c_magenta_d #b16286
-set $c_black_d #1d2021
-set $c_red_l #fb4934
-set $c_white_d #a89984
-set $c_yellow_l #fabd2f
-set $c_yellow_d #d79921
-set $c_blue_l #83a598
-set $c_cyan_l #8ec07c
+set $c_red_l #CC6666
+set $c_green_l #BDE077
+set $c_cyan_d #72AD8C
+set $c_cursor #fff000
+set $c_yellow_d #FEA63C
+set $c_green_d #B7CE42
+set $c_yellow_l #FFE863
+set $c_foreground #ddeedd
+set $c_blue_l #AACCBB
+set $c_magenta_l #ff5879
+set $c_black_d #25374A
+set $c_background #131D24
+set $c_magenta_d #F26B9E
+set $c_black_l #3A526B
+set $c_blue_d #66AABB
+set $c_white_l #FFFFFF
+set $c_cyan_l #9FE3BC
+set $c_red_d #BD4A4A
+set $c_white_d #DDEEDD
 # --- APPLY XRES END
 
 #class                  border        backgr.       text          split
 client.focused          $c_red_l      $c_white_d    $c_black_d    $c_white_d
-client.focused_inactive $c_black_l    $c_black_l    $c_white_d    $c_black_l
+client.focused_inactive $c_blue_l     $c_black_l    $c_white_d    $c_black_l
 client.unfocused        $c_black_l    $c_black_l    $c_white_d    $c_black_l
-client.urgent           $c_red_d      $c_red_d      $c_black_d    $c_red_d
-client.background       $background
+client.urgent           $c_magenta_l  $c_magenta_l  $c_black_d    $c_magenta_l
+client.background       $c_background
 
 
 # ----
 # Keybindings
 # ----
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
