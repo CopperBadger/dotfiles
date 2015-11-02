@@ -57,7 +57,7 @@ Linux-- I can't make any guarantees about its compatibility with other distros.
 * `xprop` -- X11 window info program, makes the window title section work.
 
 Xfce4-terminal, xterm, and rxvt-unicode (aka urxvt) have all been tested and
-supported with my color setup. Any other `~/.Xresources`-compatible emulator
+are supported with my color setup. Any other `~/.Xresources`-compatible emulator
 should be fine as well. In case you're wondering, I use urxvt.
 
 ## Installation
