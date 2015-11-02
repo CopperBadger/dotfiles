@@ -1,0 +1,11 @@
+#!/bin/bash
+# Adapted from StackOverflow user oktay
+for x in 0 1 4 5 7 8; do
+  for i in `seq 30 37`; do
+    for a in `seq 40 47`; do
+      echo -ne "\e[$x;$i;$a""m $x;$i;$a"" \e[0;37;40m\e[0m ";
+    done;
+    echo;
+  done;
+done;
+echo "";
