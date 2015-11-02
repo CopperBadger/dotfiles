@@ -20,7 +20,7 @@ if [[ -e "$linkpath" ]]; then
   
   if [[ -e "/tmp/bkg-select" ]]; then
     echo "Updating link $linkpath"
-    ln -fs `cat /tmp/bkg-select` "$linkpath"
+    ln -fs "`cat /tmp/bkg-select`" "$linkpath"
     rm /tmp/bkg-select
     update-wallpaper
   else

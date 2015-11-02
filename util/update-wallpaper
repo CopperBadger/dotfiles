@@ -18,4 +18,5 @@ case $mode in
     ;;
 esac
 
-feh --bg-fill `readlink -f "$path"`
+tgt=$(readlink -f "$path")
+feh --bg-fill "$tgt"
