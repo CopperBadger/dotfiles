@@ -11,12 +11,15 @@ case $mode in
       tod="$1"
     fi
     [[ -e "$HOME/.wallpapers/$tod" ]] || tod=default
-    path=`readlink -f "$HOME/.wallpapers/$tod"`
+    tgt=$(readlink -f "$HOME/.wallpapers/$tod")
     ;;
   RANDOM)
-    # TODO -- Select random from ~/.wallpapers/random-src
+    tgtdir=$(realpath "$HOME/.wallpapers/random-src")
+    tgtfiles=($tgtdir/*.*)
+    if (( ${#tgtfiles[@]} > 0 )); then
+      tgt=${tgtfiles[RANDOM % ${#tgtfiles[@]}]}
+    fi
     ;;
 esac
 
-tgt=$(readlink -f "$path")
 feh --bg-fill "$tgt"
