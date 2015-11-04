@@ -25,16 +25,16 @@ set $left h
 set $right l
 set $mod Mod4
 
-set $ws1 1:web
-set $ws2 2:sh
-set $ws3 3:app
-set $ws4 4:mail
-set $ws5 5:sh2
-set $ws6 6:sh3
-set $ws7 7:sh7
-set $ws8 8:sh8
-set $ws9 9:sh9
-set $ws10 10:sh10
+set $ws1 0
+set $ws2 1
+set $ws3 2
+set $ws4 3
+set $ws5 4
+set $ws6 5
+set $ws7 6
+set $ws8 7
+set $ws9 8
+set $ws10 9
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

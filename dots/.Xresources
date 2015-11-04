@@ -1,4 +1,3 @@
-xterm*faceName: terminusicons2mono:style=Regular:size=9
 *font: xft:Liberation Mono for Powerline:style=Bold:size=10
 *scrollBar: false
 *letterSpace: -1

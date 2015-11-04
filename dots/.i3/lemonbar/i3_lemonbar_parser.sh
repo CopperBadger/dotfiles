@@ -83,13 +83,14 @@ while read -r line ; do
       vol_arr=(${line#???})
       vol_bkg=$color_sec_b2
       vol_frg=$color_fore
+      vol_ico=$icon_vol
       vol_txt=${vol_arr[1]}
       if [[ ${vol_arr[0]} == "M" ]]; then
         vol_bkg=$color_sec_b1
         vol_frg=$color_icon
-        vol_txt="($vol_txt)"
+        vol_ico=$icon_mute
       fi
-      vol="%{F${vol_bkg}}${sep_left}%{F${color_icon} B${vol_bkg}} %{T2}${icon_vol}%{F${vol_frg} T1} $vol_txt%{F${color_fore}}"
+      vol="%{F${vol_bkg}}${sep_left}%{F${color_icon} B${vol_bkg}} %{T2}${vol_ico}%{F${vol_frg} T1} $vol_txt%{F${color_fore}}"
       ;;
 
     GMA*)
@@ -162,10 +163,10 @@ while read -r line ; do
       while [ $# -gt 0 ] ; do
         case $1 in
          FOC*)
-           wsp="${wsp}%{F${color_head} B${color_wsp}}${sep_right}%{F${color_back} B${color_wsp} T1} ${1#???} %{F${color_wsp} B${color_head}}${sep_right}"
+           wsp="${wsp}%{F${color_head} B${color_wsp}}${sep_right}%{F${color_back} B${color_wsp} T1} ${1##????} %{F${color_wsp} B${color_head}}${sep_right}"
            ;;
          INA*|URG*|ACT*)
-           wsp="${wsp}%{F${color_back} T1} ${1#???} "
+           wsp="${wsp}%{F${color_back} T1} ${1##????} "
            ;;
         esac
         shift
@@ -175,17 +176,41 @@ while read -r line ; do
     WIN*)
       # window title
       title=$(xprop -id ${line#???} | awk '/_NET_WM_NAME/{$1=$2="";print}' | cut -d'"' -f2)
-      title="%{F${color_head} B${color_sec_b2}}${sep_right}%{F${color_icon} B${color_sec_b2} T2} ${icon_prog} %{F${color_sec_b2} B-}${sep_right}%{F- B- T1} ${title}"
+      title="%{F${color_head} B${color_sec_b2} T1}${sep_right}%{F${color_icon} B${color_sec_b2} T2} ${icon_prog} %{F${color_sec_b2} B- T1}${sep_right}%{F- B- T1} ${title}"
       ;;
 
     WNM*)
       # Window title (string)
       title=$(echo ${line#???} | xargs)
-      title="%{F${color_head} B${color_sec_b2}}${sep_right}%{F${color_icon} B${color_sec_b2} T2} ${icon_prog} %{F${color_sec_b2} B-}${sep_right}%{F- B- T1} ${title}"
+      title="%{F${color_head} B${color_sec_b2} T1}${sep_right}%{F${color_icon} B${color_sec_b2} T2} ${icon_prog} %{F${color_sec_b2} B- T1}${sep_right}%{F- B- T1} ${title}"
+      ;;
+
+    VIS*)
+      # Visual effects
+      viscmds=(${line#???})
+      ;;
+
+    MSG*)
+      viscmds=(`echo "fill ${color_sec_b2} ${color_fore}"`)
+      msg=${line#???}
+      ;;
+
+    WRN*)
+      viscmds=(`echo "fill ${color_warning} ${color_back}"`)
+      msg=${line#???}
+      ;;
+
+    ALT*)
+      viscmds=(`echo "fill ${color_critical} ${color_back}"`)
+      msg=${line#???}
       ;;
       
   esac
 
   # And finally, output
-  printf "%s\n" "%{l}${wsp}${title} %{r}${mpd}${stab}${wland}${stab}${wlanu}${stab}${vol}${stab}${cpu}${stab}${mem}${stab}${batamt}${stab}${date}${stab}${time}"
+  if [[ ${viscmds[0]} == "fill" ]]; then
+    printf "%s\n" "%{l}%{B${viscmds[2]}}   %{B${viscmds[1]} F${viscmds[2]}}${sep_right} ${msg} %{r}%{B${viscmds[1]} F${viscmds[2]}}"
+  else
+    printf "%s\n" "%{l}${wsp}${title} %{r}${mpd}${stab}${wland}${stab}${wlanu}${stab}${vol}${stab}${cpu}${stab}${mem}${stab}${batamt}${stab}${date}${stab}${time}"
+  fi
 done

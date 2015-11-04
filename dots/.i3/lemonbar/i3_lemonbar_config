@@ -4,7 +4,7 @@
 panel_fifo="/tmp/i3_lemonbar_${USER}"
 geometry="x14"
 font="-xos4-terminesspowerline-medium-r-normal--12-120-72-72-c-60-iso10646-1"
-iconfont="-xos4-terminusicons2mono-medium-r-normal--12-120-72-72-m-60-iso8859-1"
+iconfont="-wuncon-siji-medium-r-normal--10-100-75-75-c-80-iso10646-1"
 res_w=$(xrandr | grep "current" | awk '{print $8a}')
 
 # Alarm settings
@@ -59,7 +59,7 @@ color_clock_edge="$c_yellow_l"             # Color for clock
 
 color_success="$c_green_d"           # Positive color for good times
 color_warning="$c_yellow_l"           # Yellow color for warnings (eg, low battery)
-color_critical="$c_red_l"          # Red color for critical meters
+color_critical="$c_magenta_l"          # Red color for critical meters
 
 #default space between sections
 if [ ${res_w} -gt 1024 ]; then
@@ -75,20 +75,39 @@ sep_l_left=""                      # Powerline light separator left
 sep_l_right=""                     # Powerline light sepatator right
 
 # Icon glyphs from Terminusicons2
-icon_clock="Õ"                      # Clock icon
-icon_cpu="Ï"                        # CPU icon
-icon_mem="Þ"                        # MEM icon
-icon_dl="Ð"                         # Download icon
-icon_ul="Ñ"                         # Upload icon
-icon_vol="Ô"                        # Volume icon
+# icon_clock="Õ"                      # Clock icon
+# icon_cpu="Ï"                        # CPU icon
+# icon_mem="Þ"                        # MEM icon
+# icon_dl="Ð"                         # Download icon
+# icon_ul="Ñ"                         # Upload icon
+# icon_vol="Ô"                        # Volume icon
+# icon_hd="À"                         # HD / icon
+# icon_home="Æ"                       # HD /home icon
+# icon_mail="Ó"                       # Mail icon
+# icon_chat="Ò"                       # IRC/Chat icon
+# icon_music="Î"                      # Music icon
+# icon_prog="Â"                       # Window icon
+# icon_contact="Á"                    # Contact icon
+# icon_wsp="Ç"                        # Workspace icon
+# icon_battery=""                    # Battery icon
+# icon_charging="+"                   # Charging icon
+
+# Icon glyphs from Siji
+icon_clock=""                      # Clock icon
+icon_cpu=""                        # CPU icon
+icon_mem=""                        # MEM icon
+icon_dl=""                         # Download icon
+icon_ul=""                         # Upload icon
+icon_vol=""                        # Volume icon
+icon_mute=""
 icon_hd="À"                         # HD / icon
 icon_home="Æ"                       # HD /home icon
 icon_mail="Ó"                       # Mail icon
 icon_chat="Ò"                       # IRC/Chat icon
-icon_music="Î"                      # Music icon
-icon_prog="Â"                       # Window icon
+icon_music=""                      # Music icon
+icon_prog=""                       # Window icon
 icon_contact="Á"                    # Contact icon
-icon_wsp="Ç"                        # Workspace icon
+icon_wsp=""                        # Workspace icon
 icon_battery=""                    # Battery icon
 icon_charging="+"                   # Charging icon
 
