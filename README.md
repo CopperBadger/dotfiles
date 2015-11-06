@@ -26,7 +26,7 @@ something is missing*
 
 This setup is intended for **[i3-gaps](https://github.com/Airblader/i3)** by
 Airblader. I haven't tested it with regular i3-- you'll probably have to make
-a few changes if you want to use that. I've only every installed it on Arch
+a few changes if you want to use that. I've only ever installed it on Arch
 Linux-- I can't make any guarantees about its compatibility with other distros.
 
 * `compton` -- Compositor (GPU acceleration for X, shadows, fades, all kinds
@@ -36,30 +36,28 @@ Linux-- I can't make any guarantees about its compatibility with other distros.
 * `feh` -- Wallpaper-setting program and minimalst image viewer
 * `mpc` -- Client for `mpd`, responsible for telling lemonbar about the currently
   playing media.
-* `mpd` -- Music Player Daemon. Plays beautiful music for you. I recommend
+* `mpd` --
+  [Music Player Daemon](https://wiki.archlinux.org/index.php/Music_Player_Daemon#Setup).
+  Plays beautiful music for your face. I recommend
   `ncmpcpp` as a terminal client for it.
-  ([Setup](https://wiki.archlinux.org/index.php/Music_Player_Daemon#Setup))
 * `iwconfig` -- Wireless interface configuration tool, used only for `wifimode`
 * [Powerline](http://powerline.readthedocs.org/en/master/) -- Statusline framework
   with many plugins. Needed for `vim`, `tmux`, and shell styling.
-* [Powerline Fonts](https://github.com/powerline/fonts). I can't say too much
-  on this. Fonts are a pain in Linux.
-  -- Icon font I use for lemonbar. Mostly because it's the only one I can get
-  to work.
-* [Siji Icon Font](https://github.com/gstk/siji) -- Wonderful icon font I use for
-  lemonbar.
+* [Powerline Fonts](https://github.com/powerline/fonts) -- For the arrows and such.
+* [Siji Icon Font](https://github.com/gstk/siji) -- Wonderful icon font, I use it
+  for lemonbar.
 * `pulseaudio` -- If you don't use / like pulseaudio, that's okay. You'll just have
   to do a little work yourself to get the volume scripts, media key bindings,
   and shell aliases to work for whatever setup you have.
 * `python3` -- For `applyxres`. You probably already have it.
 * `ranger` -- Terminal file browser. Used in `bkg` script to easily browse
-  available wallpapers.
+  images.
 * `rofi` -- Super-nice launcher, better than dmenu. Needed for `myrofi`.
 * `xprop` -- X11 window info program, makes the window title section work.
 
 Xfce4-terminal, xterm, and rxvt-unicode (aka urxvt) have all been tested and
 are supported with my color setup. Any other `~/.Xresources`-compatible emulator
-should be fine as well. In case you're wondering, I use urxvt.
+should be fine as well. I use urxvt, if you're curious.
 
 ## Installation
 
@@ -75,15 +73,13 @@ should be fine as well. In case you're wondering, I use urxvt.
   except for:
   * `compton.conf`, which should be placed in `~/.config/compton` (create this
     directory if it does not already exist)
-  * `terminalrc`, if you use Xfce4-terminal, which should be placed in
-    `~/.config/xfce4/terminal` (create this directory if it does not already
-    exist as well)
-  * `ApplyXres.template`, if you use Sublime Text, which should be placed in
-    `~/.config/sublime-text-3/Packages/User`. See the "Sublime Text theme"
-    section for more info. Ignore if you don't want it.
-  * `bkg.service` and `bkg.timer`, two systemd units that automate background
-    switching. If you use systemd, place them in one of your installation's
-    unit directories. If you don't use systemd, don't sweat it.
+  * If you use Xfce4-terminal, place `terminalrc` in `~/.config/xfce4/temrinal`
+  * If you use Sublime Text 3, place `ApplyXres.template` in
+    `~/.config/sublime-text-3/Packages/User` and read the "Sublime Text theme"
+    section.
+  * If you use systemd, place `bkg.service` and `bkg.timer` in one of your
+    installation's unit directories and enable the timer. If you don't use
+    systemd, don't sweat it.
 
 4. Special step for Powerline. Locate your Powerline installation (it will be
   located in the `site-packages` directory of your Python installation, either
@@ -94,7 +90,7 @@ should be fine as well. In case you're wondering, I use urxvt.
   Also, make a symlink in your home directory to the `config_files` directory,
   and call it `pl-conf`. (ie, `ln -s /path/to/powerline/config_files/ ~/pl-conf`)
 
-### Wallpapers
+### Wallpaper
 
 Run the `wallpaper.init` script to set up your `~/.wallpapers` directory. You
 will need to supply the path for a default background image. To cancel, press
@@ -102,7 +98,7 @@ Ctrl+c.
 
 My setup has three modes for wallpaper display:
 
-1. "Normal" -- One wallpaper is displayed all of the time.
+1. `NORMAL` -- One wallpaper is displayed all of the time.
 2. `DAY` -- A series of wallpapers cycle through the day, according to the
     output of the `timeofday` utility script.
 3. `RANDOM` -- Will select a random wallpaper from the directory linked by
@@ -113,16 +109,16 @@ The latter two require a scheduled job to trigger the `update-wallpaper` script
 included `bkg.service` and `bkg.timer` units. If you do not use systemd, you
 will have to schedule the job yourself.
 
-One of these three modes should be the sole contents of the `~/.wallpapers/mode`
+One of the three modes should be the sole contents of the `~/.wallpapers/mode`
 file. This mode will be an indicator for the wallpaper management scripts, of
 which there are two:
 
-1. `bkg` -- This script modifies which wallpapers (backgrounds) are selected for
-    use, one per run. If the mode is `DAY`, it will change the wallpaper used
-    for the current time of day. You may pass this script a single argument if
-    you want to modify a different time of day. Ex: `bkg "Late Afternoon"` will
-    modify the background selected for late afternoon, regardless of the current
-    time. `ranger` is required for this script to function properly.
+1. `bkg` -- This script modifies which images are selected for use as wallpapers,
+    one per run. If the mode is `DAY`, it will change the wallpaper for the
+    current time of day. You may pass this script a single argument if you want
+    to modify a different time of day. Ex: `bkg "Late Afternoon"` will modify
+    the background selected for late afternoon, regardless of the current time.
+    `ranger` is required for this script to function properly.
 
 2. `update-wallpaper` -- This script applies the appropriate wallpaper according
     to the contents of `~/.wallpapers/mode` and any other external factors (eg,
@@ -130,11 +126,11 @@ which there are two:
     interval. It is also run by `~/.xinitrc` (ie, on X11 startup)
 
 Note: If the contents of the `~/.wallpapers/mode` file are not recognized, 
-"Normal" mode is assume.
+`NORMAL` is assumed.
 
 Take care that if you move or removed a background image referenced by your
 wallpaper setup, the scripts will not function properly. You will have to
-create the symlinks in your `~/.wallpapers` directory manually.
+restore the symlinks in your `~/.wallpapers` directory manually.
 
 ### Sublime Text Theme
 
@@ -198,12 +194,13 @@ in them (except for bar, which is simply the lemonbar binary)
 
 I wrote `applyxres` to streamline color theming in my system. All you have to do
 to change your system's color scheme is edit your `~/.Xresources` file and run
-`applyxres`. Some of the changes won't be visible until you reboot.
+`applyxres`. Some of the changes won't be visible until their corresponding
+programs are restarted.
 
 ### Keybindings
 
 Refer to `~/.i3/config` for keybindings-- it's mostly stock, with a few changes.
-Arrow keys are disabled in favor of vim-style movement. Same thing for `.vimrc`.
+Arrow keys are disabled in favor of vim-style movement.
 
 Exit i3 with Super+Shift+e, ~~but be advised that there is a bug in electro7's
 bar scripts that causes perl to explode after logging out. You should either
