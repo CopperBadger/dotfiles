@@ -46,11 +46,11 @@ case $tod in
     fg="$c_black_d"
     ;;
   "Evening")
-    bg="$c_red_d"
-    fg="$c_white_l"
+    bg="$c_background"
+    fg="$c_yellow_d"
     ;;
   "Night")
-    bg="$c_background"
+    bg="$c_black_d"
     fg="$c_blue_l"
     ;;
 esac
