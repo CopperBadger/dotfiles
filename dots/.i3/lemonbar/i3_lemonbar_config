@@ -105,11 +105,13 @@ icon_home="Æ"                       # HD /home icon
 icon_mail="Ó"                       # Mail icon
 icon_chat="Ò"                       # IRC/Chat icon
 icon_music=""                      # Music icon
+icon_music_playing=""
+icon_music_paused=""
 icon_prog=""                       # Window icon
 icon_contact="Á"                    # Contact icon
 icon_wsp=""                        # Workspace icon
-icon_battery=""                    # Battery icon
-icon_charging="+"                   # Charging icon
+icon_battery="         "
+icon_charging=""
 
 # Ionicon glyphs
 # icon_battery=""                      # Battery icon (half-ish full)

@@ -136,6 +136,8 @@ while read -r line ; do
       #   [1] = charging status (D(ischarging), C(harging))
       #   [2] = power level (F(ull), N(ormal), L(ow), C(ritical))
       bat_arr=(${line#???})
+      bat_icons=($icon_battery)
+      ico="${bat_icons[$(((${bat_arr[0]}*(${#bat_icons[@]}-1))/100))]}"
       bkg="${color_sec_b1}"
       frg="${color_fore}"
 
@@ -146,13 +148,14 @@ while read -r line ; do
         bkg="${color_critical}"
         frg="${color_back}"
       elif [[ ${bat_arr[2]} == "F" ]]; then
-        bkg="${color_success}"
+        bkg="${c_green_d}"
+        frg="${c_white_l}"
       fi
 
-      batamt="%{F${bkg}}${sep_left}%{B${bkg}} %{F${frg}}${bat_arr[0]}%%"
+      batamt="%{F${bkg}}${sep_left}%{B${bkg}} %{F${frg}} ${ico} ${bat_arr[0]}%%"
 
       if [[ ${bat_arr[1]} == "C" ]]; then
-        batamt="%{F${color_fore}}${sep_left}%{B${color_fore}}${batamt}"
+        batamt="%{F${color_fore}}${sep_left}%{F${color_back} B${color_fore}}${icon_charging}${batamt}"
       fi
       ;;
 
