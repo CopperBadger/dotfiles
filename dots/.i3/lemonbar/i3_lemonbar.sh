@@ -42,7 +42,7 @@ while :; do
 
   # Volume, "VOL"
   if [ $((cnt_vol++)) -ge ${upd_vol} ]; then
-    echo "VOL$(volume-status-2)" > "${panel_fifo}" &
+    echo "VOL$(alsa-status)" > "${panel_fifo}" &
     cnt_vol=0
   fi
 
@@ -79,7 +79,7 @@ done &
 #### LOOP FIFO
 
 cat "${panel_fifo}" | $(dirname $0)/i3_lemonbar_parser.sh \
-  | bar -p -f "${font}" -f "${iconfont}" -g "${geometry}" -B "${color_back}" -F "${color_fore}" &
+  | bar -p -f "${font}" -f "${iconfont}" -f "${plfont}" -g "${geometry}" -B "${color_back}" -F "${color_fore}" &
 
 wait
 

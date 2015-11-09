@@ -154,6 +154,8 @@ For my `.vimrc` to work, you'll need [Vundle](https://github.com/VundleVim/Vundl
 
 I've written the following utiliy scripts to manage the system:
 
+* `alsa-status` -- (09 Nov 2015) ALSA-compliant replacement for `volume-status-2`,
+  which relied on PulseAudio.
 * `applyxres` -- Python script that will apply the colors defined in
   `~/.Xresources` to color configuration files throughout the system.
 * `batmon` -- Basically useless battery monitor, but hey, maybe you'll find a
@@ -181,7 +183,8 @@ I've written the following utiliy scripts to manage the system:
 * `update-wallpaper` -- Sets the currently appropriate wallpaper, described above.
 * `volume-status` -- Old volume status script, superceded by volume-status-2. I
   don't know why I keep it around.
-* `volume-status-2` -- New volume status script, used by bar.
+* `volume-status-2` -- Less old (but still old) volume script, superceded by
+  alsa-status.
 * `wallpaper.init` -- Sets up `~/.wallpapers`. See above for more details.
 * `wifimode` -- Allows you to quickly change your wlan interface's operating
   mode. You'll have to change the iname variable in the script to the name of
