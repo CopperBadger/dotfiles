@@ -33,7 +33,7 @@ Linux-- I can't make any guarantees about its compatibility with other distros.
    spiffiness)
 * `conky` -- System monitor, provides network, memory, and CPU usage info to
   lemonbar.
-* `feh` -- Wallpaper-setting program and minimalst image viewer
+* `feh` -- Wallpaper-setting program and minimalist image viewer
 * `mpc` -- Client for `mpd`, responsible for telling lemonbar about the currently
   playing media.
 * `mpd` --
@@ -128,7 +128,7 @@ which there are two:
 Note: If the contents of the `~/.wallpapers/mode` file are not recognized, 
 `NORMAL` is assumed.
 
-Take care that if you move or removed a background image referenced by your
+Take care that if you move or remove a background image referenced by your
 wallpaper setup, the scripts will not function properly. You will have to
 restore the symlinks in your `~/.wallpapers` directory manually.
 
@@ -152,7 +152,7 @@ For my `.vimrc` to work, you'll need [Vundle](https://github.com/VundleVim/Vundl
 
 ### Scripts
 
-I've written the following utiliy scripts to manage the system:
+I've written the following utility scripts to manage the system:
 
 * `alsa-status` -- (09 Nov 2015) ALSA-compliant replacement for `volume-status-2`,
   which relied on PulseAudio.
@@ -160,13 +160,13 @@ I've written the following utiliy scripts to manage the system:
   `~/.Xresources` to color configuration files throughout the system.
 * `batmon` -- Basically useless battery monitor, but hey, maybe you'll find a
   reason to use it. :shrugs: Use Ctrl+c to exit.
-* `batpct` -- Outputs battery percentage to four points of percision. I used to
+* `batpct` -- Outputs battery percentage to four points of precision. I used to
   use this for the bar until I replaced it with `batstat`, and still use it as
   a quick way to check my battery life on startup before I start X11.
 * `batstat` -- Outputs concise battery information, used for lemonbar.
 * `bkg` -- Script used to manage selected background images. Described above.
-* `frame` -- Old script from when I was using XFCE, before I leared about the
-  wonderous power of i3-gaps. The script attempts to place the window in the
+* `frame` -- Old script from when I was using XFCE, before I learned about the
+  wondrous power of i3-gaps. The script attempts to place the window in the
   center of the screen with a small amount of padding around the edges.
 * `gaps` -- Modifies the window gaps provided by `i3-gaps`. Takes a descriptive
   string, either "pretty", "work", or "focus", or a pair of integers to manually
@@ -181,16 +181,16 @@ I've written the following utiliy scripts to manage the system:
   either "Late Night", "Early Morning", "Morning", "Afternoon", "Late Afternoon"
   "Evening", or "Night"
 * `update-wallpaper` -- Sets the currently appropriate wallpaper, described above.
-* `volume-status` -- Old volume status script, superceded by volume-status-2. I
+* `volume-status` -- Old volume status script, superseded by volume-status-2. I
   don't know why I keep it around.
-* `volume-status-2` -- Less old (but still old) volume script, superceded by
+* `volume-status-2` -- Less old (but still old) volume script, superseded by
   alsa-status.
 * `wallpaper.init` -- Sets up `~/.wallpapers`. See above for more details.
 * `wifimode` -- Allows you to quickly change your wlan interface's operating
   mode. You'll have to change the iname variable in the script to the name of
   your interface if it differs from the preset one. Ex: `sudo wifimode Monitor`
 
-The rest of the scripts aren't my own-- they should all have attributions writen
+The rest of the scripts aren't my own-- they should all have attributions written
 in them (except for bar, which is simply the lemonbar binary)
 
 ### Colors
