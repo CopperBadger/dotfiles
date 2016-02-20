@@ -5,6 +5,7 @@
 Dependencies are:
 
 * [lemonbar-xft](https://aur.archlinux.org/packages/lemonbar-xft-git/)
+* [Conky](https://aur.archlinux.org/packages/conky-git/)
 * Some kind of [Font Awesome](https://aur.archlinux.org/packages/otf-font-awesome/)
 * [Noto Sans](https://aur.archlinux.org/packages/ttf-noto/)
 
