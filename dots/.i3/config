@@ -11,7 +11,8 @@
 # -----
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Terminus 8
+# font pango:Terminus 8
+font pango:Noto Sans bold 8
 
 
 # ----
@@ -25,16 +26,17 @@ set $left h
 set $right l
 set $mod Mod4
 
-set $ws1 0
-set $ws2 1
-set $ws3 2
-set $ws4 3
-set $ws5 4
-set $ws6 5
-set $ws7 6
-set $ws8 7
-set $ws9 8
-set $ws10 9
+# Note I use en spaces (u0x2002) so the bar thinks they are just one word
+set $ws1 0 web
+set $ws2 1 sh
+set $ws3 2 app
+set $ws4 3 mail
+set $ws5 4 sh2
+set $ws6 5 sh3
+set $ws7 6 sh4
+set $ws8 7 sh5
+set $ws9 8 sh6
+set $ws10 9 game
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -43,39 +45,39 @@ floating_modifier $mod
 # ----
 # Colors and Look (from https://github.com/electro7/dotfiles/blob/master/.i3/config)
 # ----
-gaps inner 8
-gaps outer 12
+gaps inner 12
+gaps outer 8
 new_window pixel 2
 new_float pixel 2
 
 # Xresource-based. Do not edit manually, will be overwritten by script
 # --- APPLY XRES BEGIN
-set $c_red_l #CC6666
-set $c_green_l #BDE077
-set $c_cyan_d #72AD8C
+set $c_red_l #fb4934
+set $c_blue_l #83a598
+set $c_blue_d #458588
+set $c_magenta_d #b16286
+set $c_black_d #1d2021
+set $c_cyan_l #8ec07c
+set $c_magenta_l #d3869b
+set $c_yellow_l #fabd2f
+set $c_red_d #cc241d
+set $c_background #282828
+set $c_cyan_d #689d6a
+set $c_green_l #b8bb26
+set $c_foreground #ebdbb2
+set $c_white_d #dbae93
+set $c_green_d #98971a
+set $c_yellow_d #d79921
 set $c_cursor #fff000
-set $c_yellow_d #FEA63C
-set $c_green_d #B7CE42
-set $c_yellow_l #FFE863
-set $c_foreground #ddeedd
-set $c_blue_l #AACCBB
-set $c_magenta_l #ff5879
-set $c_black_d #25374A
-set $c_background #131D24
-set $c_magenta_d #F26B9E
-set $c_black_l #3A526B
-set $c_blue_d #66AABB
-set $c_white_l #FFFFFF
-set $c_cyan_l #9FE3BC
-set $c_red_d #BD4A4A
-set $c_white_d #DDEEDD
+set $c_white_l #fbf1c7
+set $c_black_l #665c54
 # --- APPLY XRES END
 
-#class                  border        backgr.       text          split
-client.focused          $c_red_l      $c_white_d    $c_black_d    $c_white_d
-client.focused_inactive $c_blue_l     $c_black_l    $c_white_d    $c_black_l
-client.unfocused        $c_black_l    $c_black_l    $c_white_d    $c_black_l
-client.urgent           $c_magenta_l  $c_magenta_l  $c_black_d    $c_magenta_l
+#class                  background?   border        text          split
+client.focused          $c_white_d    $c_white_d    $c_black_l    $c_white_d
+client.focused_inactive $c_black_d    $c_background    $c_black_l    $c_black_d
+client.unfocused        $c_black_d    $c_background    $c_black_l    $c_black_d
+client.urgent           $c_magenta_l  $c_magenta_l  $c_black_l    $c_magenta_l
 client.background       $c_background
 
 
@@ -88,12 +90,8 @@ bindsym $mod+Return exec urxvt
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
+# start rofi
 bindsym $mod+p exec myrofi
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+$left focus left
@@ -191,6 +189,10 @@ bindsym $mod+Shift+e exec i3-msg exit
 bindsym XF86AudioRaiseVolume exec lemonvol +
 bindsym XF86AudioLowerVolume exec lemonvol -
 bindsym XF86AudioMute exec lemonvol M
+bindsym XF86AudioPause exec lempc pause
+bindsym XF86AudioPlay exec lempc pause
+bindsym XF86AudioNext exec lempc next
+bindsym XF86AudioPrev exec lempc prev
 
 # ----
 # Resize Mode Options
@@ -211,8 +213,8 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Window assignments
-assign [class="Chromium$"] $ws1
-assign [class="Firefox$"] $ws1
+assign [class="chromium"] $ws1
+assign [class="Firefox"] $ws1
 assign [class="Wicd"] $ws3
 assign [class="Telegram"] $ws4
 assign [class="Thunderbird"] $ws4

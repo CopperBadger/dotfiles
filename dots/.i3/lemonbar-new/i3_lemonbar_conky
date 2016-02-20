@@ -1,0 +1,23 @@
+conky.config = {
+ background = false,
+ update_interval = 2,
+ total_run_times = 0,
+ override_utf8_locale = true,
+ short_units = true,
+ uppercase = false,
+ out_to_console = true,
+ out_to_x = false,
+ if_up_strictness = 'address',
+ format_human_readable = true
+}
+
+conky.text = [[
+SYS\
+${time %a %d %b %I:%M%p} \
+${cpu} \
+${mem} \
+${fs_used_perc /} \
+${fs_used_perc /home} \
+${if_up wlp2s0}${downspeedf wlp2s0} ${upspeedf wlp2s0} \
+${else} down down ${endif}\
+]]
