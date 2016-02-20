@@ -5,9 +5,11 @@
 Dependencies are:
 
 * [lemonbar-xft](https://aur.archlinux.org/packages/lemonbar-xft-git/)
+* Python3 (default on Arch Linux, you will probably have to make some changes to the code if you're on another distro)
+* The [i3-ipc](https://aur.archlinux.org/packages/i3ipc-python-git/) Python library
 * [Conky](https://aur.archlinux.org/packages/conky-git/)
 * Some kind of [Font Awesome](https://aur.archlinux.org/packages/otf-font-awesome/)
-* [Noto Sans](https://aur.archlinux.org/packages/ttf-noto/)
+* [Noto Sans](https://aur.archlinux.org/packages/ttf-noto/) is the default font, feel free to switch it out in `i3_lemonbar_config`
 
 To run the lemonbar, simply run the included `i3_lemonbar.sh` script.
 
