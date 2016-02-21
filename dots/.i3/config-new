@@ -1,0 +1,225 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
+# To get a config file with the same key positions, but for your current
+# layout, use the i3-config-wizard
+
+
+# -----
+# Font
+# -----
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+# font pango:Terminus 8
+font pango:Noto Sans bold 8
+
+
+# ----
+# Keybinding Variables
+# ----
+# use these keys for focus, movement, and resize directions when reaching for
+# the arrows is not convenient
+set $up k
+set $down j
+set $left h
+set $right l
+set $mod Mod4
+
+# Note I use en spaces (u0x2002) so the bar thinks they are just one word
+set $ws1 0 web
+set $ws2 1 sh
+set $ws3 2 app
+set $ws4 3 mail
+set $ws5 4 sh2
+set $ws6 5 sh3
+set $ws7 6 sh4
+set $ws8 7 sh5
+set $ws9 8 sh6
+set $ws10 9 game
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+
+# ----
+# Colors and Look (from https://github.com/electro7/dotfiles/blob/master/.i3/config)
+# ----
+gaps inner 12
+gaps outer 8
+new_window pixel 2
+new_float pixel 2
+
+# Xresource-based. Do not edit manually, will be overwritten by script
+# --- APPLY XRES BEGIN
+set $c_red_l #fb4934
+set $c_blue_l #83a598
+set $c_blue_d #458588
+set $c_magenta_d #b16286
+set $c_black_d #1d2021
+set $c_cyan_l #8ec07c
+set $c_magenta_l #d3869b
+set $c_yellow_l #fabd2f
+set $c_red_d #cc241d
+set $c_background #282828
+set $c_cyan_d #689d6a
+set $c_green_l #b8bb26
+set $c_foreground #ebdbb2
+set $c_white_d #dbae93
+set $c_green_d #98971a
+set $c_yellow_d #d79921
+set $c_cursor #fff000
+set $c_white_l #fbf1c7
+set $c_black_l #665c54
+# --- APPLY XRES END
+
+#class                  background?   border        text          split
+client.focused          $c_white_d    $c_white_d    $c_black_l    $c_white_d
+client.focused_inactive $c_black_d    $c_background    $c_black_l    $c_black_d
+client.unfocused        $c_black_d    $c_background    $c_black_l    $c_black_d
+client.urgent           $c_magenta_l  $c_magenta_l  $c_black_l    $c_magenta_l
+client.background       $c_background
+
+
+# ----
+# Keybindings
+# ----
+# start a terminal
+bindsym $mod+Return exec urxvt
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start rofi
+bindsym $mod+p exec myrofi
+
+# change focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# alternatively, you can use the cursor keys:
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+u split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# move the currently focused window to the scratchpad
+# bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+# bindsym $mod+minus scratchpad show
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload the configuration file (disabling this because electro7's bar makes my CPU cry on restart)
+# bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# DISABLED because of lemonbar perl script error causes CPU freakout
+# bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec i3-msg exit
+
+# ----
+# Media Keybindings
+# ----
+bindsym XF86AudioRaiseVolume exec lemonvol +
+bindsym XF86AudioLowerVolume exec lemonvol -
+bindsym XF86AudioMute exec lemonvol M
+bindsym XF86AudioPause exec lempc pause
+bindsym XF86AudioPlay exec lempc pause
+bindsym XF86AudioNext exec lempc next
+bindsym XF86AudioPrev exec lempc prev
+
+# ----
+# Resize Mode Options
+# ----
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Window assignments
+assign [class="chromium"] $ws1
+assign [class="Firefox"] $ws1
+assign [class="Wicd"] $ws3
+assign [class="Telegram"] $ws4
+assign [class="Thunderbird"] $ws4
+
+
+bar {
+  i3bar_command ~/.i3/lemonbar/i3_lemonbar.sh
+}
