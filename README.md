@@ -1,3 +1,8 @@
+**Notice!** I am no longer updating this repo. Head on over to
+[archlinux-adjective](https://github.com/CopperBadger/archlinux-adjective) for
+my latest updates! It contains installation scripts that manage almost all of
+the setup.
+
 # Dotfiles
 
 Welcome to my dotfiles!
